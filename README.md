@@ -1,7 +1,7 @@
 # CellVisionAI
 
 ## Overview
-BioVisionAI offers a comprehensive exploration into the dynamic world of autophagy cells through the lens of deep learning. This project encompasses a wide range of tasks including segmentation, classification, object tracking, and next-frame prediction, all aimed at advancing our understanding of autophagy cell behaviors.
+CellVisionAI offers a comprehensive exploration into the dynamic world of autophagy cells through the lens of deep learning. This project encompasses a wide range of tasks including segmentation, classification, object tracking, and next-frame prediction, all aimed at advancing our understanding of autophagy cell behaviors.
 
 ## Repository Structure
 - `Classification/` - Models and scripts for cell classification.
