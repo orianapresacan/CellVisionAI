@@ -4,13 +4,6 @@
 
 This repository is based on the [Segment Anything Model](https://segment-anything.com/) developed by Meta, complemented by fine-tuning techniques exemplified in this [notebook](https://colab.research.google.com/drive/1Jb422MehJ6TYUCfcy6yxuSOJkSGAfJXj#scrollTo=5GhzOeOFbCQa) from Medium.
 
-
-## Key Features
-
-- **Versatile Segmentation**: Capable of segmenting a diverse range of objects within images, making it a valuable tool across different fields of research and application.
-- **Minimal Input Required**: Designed to work effectively with little to no prior information about the objects to be segmented, reducing the need for extensive annotated datasets.
-- **State-of-the-Art Performance**: Incorporates advanced deep learning techniques to deliver segmentation results at the cutting edge of current technology.
-- 
 ## Installation
 
 To integrate SAM into your projects, run the following command:
