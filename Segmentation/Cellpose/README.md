@@ -13,7 +13,7 @@ Ensure the data is structured into `train`, `valid`, and `test` directories, eac
 ## Usage Guide
 
 ### Model Download
-Acquire the pre-trained model weights from [this link](https://drive.google.com/file/d/1zHGFYCqRCTwTPwgEUMNZu0EhQy2zaovg/view), utilizing the `cyto2torch_3` model for this project.
+Acquire the pre-trained model weights from [this link](https://drive.google.com/file/d/1zHGFYCqRCTwTPwgEUMNZu0EhQy2zaovg/view). `cyto2torch_3` model was used in this project.
 
 ### Training and Evaluation Commands
 
