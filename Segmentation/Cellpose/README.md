@@ -1,8 +1,6 @@
 # Cellpose
 
-## Overview
-
-This repository enhances the approach provided by [this source](https://github.com/simula/cellular/tree/main), facilitating easy training and evaluation of [Cellpose 2.0](https://www.cellpose.org/).
+This repository builds upon [this source](https://github.com/simula/cellular/tree/main), facilitating easy training and evaluation of [Cellpose 2.0](https://www.cellpose.org/).
 
 ## Installation
 
