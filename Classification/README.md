@@ -13,3 +13,11 @@ To prepare the segmented data, utilize the `crop_and_segment_images.py` script. 
 ## Model Training
 
 For model training, execute the `train.py` script. Within this script, adjust the `MODEL` variable to select your desired model (`vgg`, `vit`, `resnet`) and set the `PRETRAINED` flag to indicate whether to initiate training from scratch or use a pretrained model as a starting point.
+
+## Model Evaluation
+
+To evaluate the model's performance on the test set, run the `test()` function within the `train.py` script. 
+
+### Get Labels
+
+For obtaining labels of each cell image in the test dataset, use the `get_labels()` function found in the `train.py` script. This step is useful for generating t-SNE plots.
