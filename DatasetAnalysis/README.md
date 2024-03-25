@@ -22,9 +22,13 @@ This repository contains the exploratory data analysis conducted on the CELLULAR
 ## Repository Contents
 
 - `cell_count.py`: Determines the minimum and maximum number of cells per image and computes the total cell count for each class.
+  
 - `class_analysis_timepoints.py`: Analyzes how cell states (classes) evolve over the five designated time points.
+  
 - `tsne_dino.py`: Generates t-SNE plots to visualize the distribution and clustering of cells based on their feature vectors.
+  
 - `box_plots_masks.py`: Analyzes the area and circularity of cells using only the segmentation masks. Includes t-test code for statistical analysis.
+  
 - `statistics_masks_timepoints.py`: Assesses changes in cell area across the five time points.
 
 
