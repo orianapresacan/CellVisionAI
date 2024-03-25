@@ -25,7 +25,7 @@ This repository contains the exploratory data analysis conducted on the CELLULAR
   
 - `class_analysis_timepoints.py`: Analyzes how cell states (classes) evolve over the five designated time points.
   
-- `tsne_dino.py`: Generates t-SNE plots to visualize the distribution and clustering of cells based on their feature vectors.
+- `tsne_dino.py`: Generates t-SNE plots to visualize the distribution and clustering of cells based on their feature vectors. First, the feature vectors are generated and saved into text files. Then, they are read from there.
   
 - `box_plots_masks.py`: Analyzes the area and circularity of cells using only the segmentation masks. Includes t-test code for statistical analysis.
   
