@@ -23,7 +23,7 @@ def convert_yolo_to_mot(folder_path):
                     center_x, center_y, width, height = map(float, parts[1:5])
                     top_left_x = center_x - (width / 2)
                     top_left_y = center_y - (height / 2)
-                    output_line = f"{frame_number},-1,{top_left_x},{top_left_y},{width},{height},100,-1,-1,-1\n"
+                    output_line = f"{frame_number},-1,{top_left_x},{top_left_y},{width},{height},1,-1,-1,-1\n"
                     output_file.write(output_line)
 
 for folder_name in os.listdir(root_directory):
