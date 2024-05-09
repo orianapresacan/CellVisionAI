@@ -23,3 +23,7 @@ To evaluate the model's performance on the test set, run the `test()` function w
 ### Get Labels
 
 For obtaining labels of each cell image in the test dataset, use the `get_labels()` function found in the `train.py` script. This step is useful for generating t-SNE plots.
+
+### Model Checkpoints
+
+You can download the checkpoints for the three models trained on the CELLULAR data set from [here](https://drive.google.com/drive/folders/1SQpfsqEfRrEO1e5esKhRJNG29iOavM2C?usp=sharing).
