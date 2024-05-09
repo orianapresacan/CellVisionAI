@@ -1,6 +1,6 @@
 # Cell Classification
 
-This project focuses on the classification of cell images using deep learning models, specifically VGG, ResNet, and Vision Transformer (ViT). The aim is to classify cell images into three categories: fed, unfed, and unidentified, based on their visual characteristics.
+This project focuses on the classification of cell images using deep learning models, specifically VGG, ResNet, and Vision Transformer (ViT). The goal is to classify cell images into three categories: basal, activated, and unidentified.
 
 ## Dataset Preparation
 
@@ -8,11 +8,11 @@ To crop each cell into its own image based on bounding box coordinates, utilize 
 
 ### Segmented Data
 
-To prepare the segmented data, utilize the `crop_and_segment_images.py` script. This requires having all bounding boxes, masks, and original images into separate directories. After executing the cropping and segmentation process, distribute the images into training, validation, and test sets according to the guidelines in `data_division.txt`. Following this, employ the `merge_folders.py` script to mix images from each category across all sets.
+To prepare the segmented data, utilize the `crop_and_segment_images.py` script. This requires having all bounding boxes, masks, and original images in separate directories. After executing the cropping and segmentation process, distribute the images into training, validation, and test sets according to the guidelines in `data_division.txt`. Following this, employ the `merge_folders.py` script to mix images from each category across all sets.
 
 ## Model Training
 
-For model training, execute the `train.py` script. Within this script, adjust the `MODEL` variable to select your desired model (`vgg`, `vit`, `resnet`) and set the `PRETRAINED` flag to indicate whether to initiate training from scratch or use a pretrained model as a starting point.
+For model training, execute the `train.py` script. Within this script, adjust the `MODEL` variable to select your desired model (`vgg`, `vit`, `resnet`) and set the `PRETRAINED` flag to indicate whether to initiate training from scratch or use a pre-trained model as a starting point.
 
 ## Model Evaluation
 
