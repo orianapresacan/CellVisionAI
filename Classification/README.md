@@ -2,7 +2,7 @@
 
 This project focuses on the classification of cell images using deep learning models, specifically VGG, ResNet, and Vision Transformer (ViT). The goal is to classify cell images into three categories: basal, activated, and unidentified.
 
-<img src="https://drive.google.com/uc?export=download&id=1h01vSiUWBtCs2svfmuhRPmjQOsH9bo0k" width="550" height="100"/>
+<img src="https://drive.google.com/uc?export=download&id=1h01vSiUWBtCs2svfmuhRPmjQOsH9bo0k" width="850" height="150"/>
 
 ## Dataset Preparation
 
