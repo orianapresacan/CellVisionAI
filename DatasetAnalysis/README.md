@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the exploratory data analysis conducted on the CELLULAR dataset. The primary goal of this analysis is to gain a deeper understanding of the data and the dynamics of the cells. This study concentrates solely on the 53 annotated images from the data set. These are all marked with the experiment date "220518". The images capture cells at five distinct time points, featuring cells that were either subjected to starvation or not.
+This repository contains the exploratory data analysis conducted on the CELLULAR data set. The primary goal of this analysis is to gain a deeper understanding of the data and the dynamics of the cells. This study concentrates solely on the 53 annotated images from the data set. These are all marked with the experiment date "220518". The images capture cells at five distinct time points, featuring cells that were either subjected to starvation or not.
 
 ## Dataset Preparation
 
