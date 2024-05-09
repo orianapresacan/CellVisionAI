@@ -3,7 +3,7 @@
 ## Overview
 CellVisionAI offers a comprehensive exploration into the dynamic world of autophagic cells through the lens of deep learning. This project encompasses a wide range of tasks including object detection, segmentation, classification, tracking, and next-frame prediction. All these models were applied on the [CELLULAR data set](https://zenodo.org/records/7503365).
 
-<img src="https://drive.google.com/uc?export=download&id=1dYf9vp-Wlz7cnB1rfBjolcDBxBZu8gFB" width="900" height="150"/> 
+<img src="https://drive.google.com/uc?export=download&id=1dYf9vp-Wlz7cnB1rfBjolcDBxBZu8gFB" width="850" height="150"/> 
 
 ## Repository Structure
 - `Classification/` - Scripts for training ResNet, VGG, and ViT for cell classification, along with the models' checkpoints.
