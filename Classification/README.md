@@ -2,7 +2,7 @@
 
 This directory focuses on the classification of cell images using VGG, ResNet, and Vision Transformer (ViT) into three different categories: basal, activated, and unidentified.
 
-<img src="./Images/cell_class_examples.jpg" width="800" height="150"/>
+<img src="../Images/cell_class_examples.jpg" width="800" height="150"/>
 
 ## Dataset Preparation
 
