@@ -3,7 +3,7 @@
 ## Overview
 CellVisionAI provides an in-depth analysis of autophagy using deep learning techniques. This repository includes tasks such as object detection, segmentation, classification, tracking, and next-frame prediction, all applied to the [CELLULAR data set](https://zenodo.org/records/7503365).
 
-<img src="https://github.com/orianapresacan/CellVisionAI/blob/234cd9547a82a3094335eb2a0a47a0ea36e58d88/Images/dataset_sample.jpg" width="800" height="150"/> 
+<img src="./Images/dataset_sample.jpg" width="800" height="150"/> 
 
 ## Repository Structure
 - `Classification/` - Scripts for training ResNet, VGG, and ViT for cell classification, along with the models' checkpoints.
