@@ -2,7 +2,7 @@
 
 This directory focuses on the classification of cell images using VGG, ResNet, and Vision Transformer (ViT) into three different categories: basal, activated, and unidentified.
 
-<img src="https://github.com/orianapresacan/CellVisionAI/blob/7e7bf82374f490d0e212d38c201019b31eca1a9d/Images/cell_class_examples.jpg" width="800" height="150"/>
+<img src="./Images/cell_class_examples.jpg" width="800" height="150"/>
 
 ## Dataset Preparation
 
