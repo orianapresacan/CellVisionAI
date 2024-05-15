@@ -2,11 +2,17 @@
 
 
 ## SORT
-- For implementing DeepSORT, we followed this [tutorial](https://github.com/abewley/sort).
+- For running SORT, we followed this [codebase](https://github.com/abewley/sort).
 - First, the bounding box annotations must be converted from the YOLO format to the MOTChallenge format. Begin by organizing the videos into separate folders; each folder should contain text files with bounding box information corresponding to each video. Then, use the `convert_to_MOT.py`.
+- For each video, create a separate directory in the `data` folder. Each video directory must contain:
+      - `det/det.txt` file with the bounding boxes in MOTChallenge format. Example: "1,-1,0.048828125,0.06689453125,0.04345703125,0.064453125,1,-1,-1,-1" where 1 is the frame number, -1 is the tracking ID, the 4 next numbers are the bounding box coordinates, the next 1 is the confidence score
+      - an `images` directory with the five images: `000001.jpg`, `000002.jpg`, etc.
+- The code will generate a text file with the results in an `output` directory.
+- `draw_real_boxes.py` can be used to draw the real bounding boxes on top of the real images.
+- `draw_consistent.py` can be used to draw the bounding boxes with the tracking IDs on top of the real images.
 
 ## DeepSORT
-- For implementing DeepSORT, we followed this [tutorial](https://github.com/nwojke/deep_sort).
+- For running DeepSORT, we followed this [codebase](https://github.com/nwojke/deep_sort).
 - First, the bounding box annotations must be converted from the YOLO format to the MOTChallenge format. Begin by organizing the videos into separate folders; each folder should contain text files with bounding box information corresponding to each video. Then, use the `convert_to_MOT.py`.
 
 ## Our Tracking Model
