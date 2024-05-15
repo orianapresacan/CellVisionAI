@@ -37,3 +37,6 @@ yolo train model=yolov8x.pt data=cell.yaml epochs=500 imgsz=2048 batch=4 device=
 yolo detect val model=path/to/checkpoints/best.pt data=cell.yaml
 ```
 
+- **Model Checkpoints:**
+
+You can download our trained yolo8x model from [here](https://drive.google.com/drive/folders/1ns0jNeTzDgscYFeK1cU-nZG7AMwvMIKt?usp=sharing).
