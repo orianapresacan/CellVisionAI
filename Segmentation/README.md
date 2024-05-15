@@ -1,6 +1,6 @@
 # Cell Segmentation
 
-<img src="../Images/segmentation.jpg" width="600" height="150"/>
+<img src="../Images/segmentation.jpg" width="500" height="150"/>
 
 This repository contains a collection of projects designed for cell segmentation tasks on the CELLULAR data set. It includes several methods:
 
