@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository is based on the [Segment Anything Model](https://segment-anything.com/) developed by Meta, complemented by fine-tuning techniques exemplified in this [notebook](https://colab.research.google.com/drive/1Jb422MehJ6TYUCfcy6yxuSOJkSGAfJXj#scrollTo=5GhzOeOFbCQa) from Medium.
+This repository is based on the [Segment Anything Model](https://segment-anything.com/) developed by Meta, complemented by fine-tuning techniques exemplified in this [notebook](https://colab.research.google.com/drive/1Jb422MehJ6TYUCfcy6yxuSOJkSGAfJXj#scrollTo=5GhzOeOFbCQa) from Medium. We used this tutorial for fine-tuning SAM without bounding boxes.
 
 ## Installation
 
