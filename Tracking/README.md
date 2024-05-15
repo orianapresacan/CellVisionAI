@@ -14,6 +14,11 @@
 ## DeepSORT
 - For running DeepSORT, we followed this [codebase](https://github.com/nwojke/deep_sort).
 - First, the bounding box annotations must be converted from the YOLO format to the MOTChallenge format. Begin by organizing the videos into separate folders; each folder should contain text files with bounding box information corresponding to each video. Then, use the `convert_to_MOT.py`.
+- This algorithm requires feature vectors. Follow the instructions from their repository's README to generate them.
+- For each video, create a separate directory in the `data` folder. Each video directory must contain:
+        - `gt` directory which is empty in our case because we do not have ground truth data.
+        - `img1` directory containing the five images.
+        - `data.npy` file with the data. 
 
 ## Our Tracking Model
 
