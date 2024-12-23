@@ -9,8 +9,18 @@ pip install ultralytics
 ```
 
 ## Data
-  
-Structure your dataset as follows, ensuring that the labels folder contains text files with bounding box coordinates in YOLO format. For tasks without class differentiation, label all objects with a single class identifier (0).
+### Understand the Annotation Format 
+The CELLULAR dataset provides bounding box annotations in YOLO format, which is compatible with YOLOv8. Each line in the annotation file follows this structure:
+```bash
+<class_id> <x_center> <y_center> <width> <height>
+```
+where the <class_id> shows which class the cell belongs to. 
+
+### Remove Classification 
+By default, YOLO models perform object classification. However, we want to treat all objects (e.g., cells) as belonging to a single class. Thus, we must modify the <class_id> values in the annotation files to 0 (from 1, 2, etc.). Use `modify_class_id.py` to automate this process.
+
+### Organize the Dataset
+Next, structure your dataset as follows, ensuring that the labels folder contains text files with the modified bounding box annotations. 
 
     data
     ├── train
@@ -20,15 +30,22 @@ Structure your dataset as follows, ensuring that the labels folder contains text
         ├── images
         └── labels
 
-- Update file paths in `cell.yaml`.
-- For tasks including classification, specify all 3 classes in `cell.yaml` and prefix text files in labels with appropriate class identifiers.
+Place training images in train/images and their corresponding annotation text files in train/labels. Do the same for validation data, placing images in val/images and annotations in val/labels. Ensure that each image has a corresponding text file with the same name (e.g., image1.jpg and image1.txt).
 
-## Usage Guide
+Refer to data_division.txt from the GitHub repository for guidance on which data belongs in train and val. 
+
+### Add Configuration File
+Copy the `cell.yaml` file from the repository into your project directory. Verify that the folder paths in `cell.yaml` are correct.
+
+## Train the YOLOv8 Model
 
 - **Model Fine-Tuning:**
 
 ```python
-yolo train model=yolov8x.pt data=cell.yaml epochs=500 imgsz=2048 batch=4 device=0,1
+yolo train model=yolov8x.pt data=cell.yaml epochs=500 imgsz=2048 batch=4
+```
+```python
+yolo train model=yolov8l.pt data=cell.yaml epochs=500 imgsz=2048 batch=4
 ```
 
 - **Model Evaluation:**
