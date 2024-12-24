@@ -7,6 +7,7 @@ This guide for fine-tuning object detection models follows instructions from [Ul
 ```bash
 pip install ultralytics
 ```
+Installing Ultralytics will automatically install Pytorch with CPU. Therefore, if you want to train the model, you should reinstall Pytorch with CUDA support from [here](https://pytorch.org/) after installing Ultralytics.
 
 ## Data
 ### Understand the Annotation Format 
@@ -32,10 +33,14 @@ Next, structure your dataset as follows, ensuring that the labels folder contain
 
 Place training images in train/images and their corresponding annotation text files in train/labels. Do the same for validation data, placing images in val/images and annotations in val/labels. Ensure that each image has a corresponding text file with the same name (e.g., image1.jpg and image1.txt).
 
-Refer to data_division.txt from the GitHub repository for guidance on which data belongs in train and val. 
+Refer to `data_division.txt` from the GitHub repository for guidance on which data belongs in train and val. 
+
+I have provided the data in a ready-to-use folder. See the `data` directory.
 
 ### Add Configuration File
-Copy the `cell.yaml` file from the repository into your project directory. Verify that the folder paths in `cell.yaml` are correct.
+Copy the `cell.yaml` file from the repository and paste it into your project directory. Verify that the folder paths in `cell.yaml` are correct.
+
+You might need to modify a path in the settings file from the Ultralytics library.
 
 ## Train the YOLOv8 Model
 
