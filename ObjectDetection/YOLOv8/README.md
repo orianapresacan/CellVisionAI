@@ -40,7 +40,7 @@ I have provided the data in a ready-to-use folder. See the `data` directory.
 ### Add Configuration File
 Copy the `cell.yaml` file from the repository and paste it into your project directory. Verify that the folder paths in `cell.yaml` are correct.
 
-You might need to modify a path in the settings file from the Ultralytics library.
+You might need to modify the "dataset_dir" path in the `settings.json` file from the Ultralytics directory, usually installed in 'C:/Users/your_user/AppData/Roaming/Ultralytics'.
 
 ## Train the YOLOv8 Model
 
