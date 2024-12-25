@@ -53,11 +53,13 @@ yolo train model=yolov8x.pt data=cell.yaml epochs=500 imgsz=2048 batch=4
 yolo train model=yolov8l.pt data=cell.yaml epochs=500 imgsz=2048 batch=4
 ```
 
-- **Model Evaluation:**
+## Evaluate the fine-tuned YOLOv8 Model
   
 ```python
 yolo detect val model=path/to/checkpoints/best.pt data=cell.yaml
 ```
+This will give you metrics such as Precision, Recall, mAP50, and mAP50-95 on the test data.
+
 
 - **Model Checkpoints:**
 
