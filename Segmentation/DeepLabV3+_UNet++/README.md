@@ -29,8 +29,9 @@ data
     └── masks
 ```
 
-The images and the corresponding masks should have the same name.
+Add the images and the masks to the train, test, and val directories based on the `data_division.txt`. The images and the corresponding masks should have the same name.
 
+Next, we need to crop each image based on the mask. To do this, run `crop_images_masks.py`, which will crop all images from the `data` folder. The script will create 2 new folders: cropped_images and cropped_masks.
 
 ## Usage examples
 
