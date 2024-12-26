@@ -4,9 +4,7 @@ This code is based on the [Segmentation Models Pytorch (SMP)](https://github.com
 
 ## Prerequisites
 
-```bash
-pip install segmentation_models_pytorch
-```
+Install all libraries from `requirements.txt`.
 
 Download the pre-trained autoencoder from [here](https://drive.google.com/file/d/1vxMdSfCnnCA1U1R2OuBOxdAGXBxFWqCN/view?usp=sharing) and add it to the pretrained_autoencoder directory.
 
