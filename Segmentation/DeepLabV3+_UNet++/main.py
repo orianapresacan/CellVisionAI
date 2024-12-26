@@ -6,8 +6,9 @@ import segmentation_models_pytorch as smp
 from torch.utils.data import DataLoader
 import train
 import metrics
+import os
 
-from dataset import KvasirDataset
+from dataset import CellDataset
 import helpers
 
 
@@ -23,6 +24,12 @@ MODEL = "UNET++"  #"FPN", "UNET++"
 USE_WANDB = False
 
 helpers.fix_seed()
+
+try:
+    os.mkdir('train_outputs')
+    print(f"Directory '{'train_outputs'}' created successfully.")
+except FileExistsError:
+    print(f"Directory '{'train_outputs'}' already exists.")
 
 
 if USE_WANDB:
@@ -47,12 +54,12 @@ model.encoder.load_state_dict(torch.load(LOCAL_ENCODER_WEIGHTS))
 # preprocessing_fn = smp.encoders.get_preprocessing_fn(ENCODER, ENCODER_WEIGHTS)
 
 # Validation dataset is always the same
-val_dataset = KvasirDataset(["data/val/cropped_images"], ["data/val/cropped_masks"]) 
+val_dataset = CellDataset(["data/val/cropped_images"], ["data/val/cropped_masks"]) 
 valid_loader = DataLoader(val_dataset, batch_size=16, shuffle=False, num_workers=NUM_WORKERS)
 
 # Train dataset - combining multiple image folders
 # images_dirs, masks_dirs = helpers.combine_folders(options.folders)
-train_dataset = KvasirDataset(["data/train/cropped_images"], ["data/train/cropped_masks"]) #, augmentation=get_training_augmentation()) #, preprocessing=get_preprocessing(preprocessing_fn)) #, augmentation=get_training_augmentation(), 
+train_dataset = CellDataset(["data/train/cropped_images"], ["data/train/cropped_masks"]) #, augmentation=get_training_augmentation()) #, preprocessing=get_preprocessing(preprocessing_fn)) #, augmentation=get_training_augmentation(), 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, num_workers=NUM_WORKERS)
 
 early_stopping = helpers.EarlyStopper(patience=20, verbose=True, path=f'checkpoints/ckpt_{MODEL}.pt')

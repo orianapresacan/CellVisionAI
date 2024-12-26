@@ -9,7 +9,7 @@ import torchvision.transforms as transforms
 def is_image_file(filename):
     return any(filename.lower().endswith(extension) for extension in ['.png', '.jpg', '.jpeg'])
 
-class KvasirDataset(Dataset):
+class CellDataset(Dataset):
     def __init__(self, images_dir, masks_dir, num_images_per_folder=None):
         self.images_dir = images_dir
         self.masks_dir = masks_dir

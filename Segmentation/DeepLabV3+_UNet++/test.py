@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 import train
 import metrics
 from PIL import Image
-from dataset import KvasirDataset
+from dataset import CellDataset
 import helpers 
 
 
@@ -86,7 +86,6 @@ def get_segmented_cells(main_folder_path, get_only_mask):
             cropped_cell_image.save(os.path.join(output_folder_path, os.path.basename(file)))
 
 if __name__ == '__main__':
-    helpers.fix_seed()
     parser = argparse.ArgumentParser(prog=__name__, description='cell')
     parser.add_argument('--action', type=str, choices=["get_samples", "get_results", "get_samples_and_results", 'get_segmented_cells'], default=("get_samples_and_results"))
     parser.add_argument('--samples', type=int, default=5)
@@ -116,7 +115,7 @@ if __name__ == '__main__':
     model.load_state_dict(torch.load(f"checkpoints/ckpt_{MODEL}.pt"))
     
     # Test dataset is always the same
-    test_dataset = KvasirDataset(["data/test/cropped_images"], ["data/test/cropped_masks"])
+    test_dataset = CellDataset(["data/test/cropped_images"], ["data/test/cropped_masks"])
     test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS)
 
     loss = smp.losses.DiceLoss(smp.losses.BINARY_MODE, from_logits=True)
