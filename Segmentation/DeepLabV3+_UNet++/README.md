@@ -2,9 +2,23 @@
 
 This code is based on the [Segmentation Models Pytorch (SMP)](https://github.com/qubvel/segmentation_models.pytorch/tree/master) library.
 
-## Prerequisites
+## Virtual Environment
+Go to the project folder. Create a virtual environment:
+```bash
+python -m venv .venv
+```
 
-Install all libraries from `requirements.txt`.
+Activate the virtual environment:
+```bash
+source ./.venv/Scripts/activate
+```
+
+Install the requirements:
+```bash
+pip install -r requirements.txt
+```
+
+## Prerequisites
 
 Download the pre-trained autoencoder from [here](https://drive.google.com/file/d/1vxMdSfCnnCA1U1R2OuBOxdAGXBxFWqCN/view?usp=sharing) and add it to the pretrained_autoencoder directory.
 
