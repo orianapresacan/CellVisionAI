@@ -4,6 +4,19 @@ This directory focuses on the classification of cell images using VGG, ResNet, a
 
 <img src="../Images/cell_class_examples.jpg" width="800" height="150"/>
 
+## Virtual Environment
+Go to the project folder. Create a virtual environment:
+```bash
+python -m venv .venv
+```
+
+Activate the virtual environment:
+```bash
+source ./.venv/Scripts/activate
+```
+
+pip install -r requirements.txt
+
 ## Dataset Preparation
 
 To crop each cell into its own image based on bounding box coordinates, utilize the `crop_images.py` script.
