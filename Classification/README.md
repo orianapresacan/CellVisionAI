@@ -15,25 +15,29 @@ Activate the virtual environment:
 source ./.venv/Scripts/activate
 ```
 
+Install the requirements:
+```bash
 pip install -r requirements.txt
+```
 
 ## Dataset Preparation
-https://drive.google.com/file/d/1Ip1zDlZwIdZMy80kIBmps5sVu6uuG8K_/view?usp=sharing 
-To crop each cell into its own image based on bounding box coordinates, utilize the `crop_images.py` script.
+Download the dataset from [here](https://drive.google.com/file/d/1Ip1zDlZwIdZMy80kIBmps5sVu6uuG8K_/view?usp=sharing). This is the original data.
 
-### Segmented Data
+### Segment and Crop the Images
 
-To prepare the segmented data, utilize the `crop_and_segment_images.py` script. This requires having all bounding boxes, masks, and original images in separate directories. After executing the cropping and segmentation process, distribute the images into training, validation, and test sets according to the guidelines in `data_division.txt`. Following this, employ the `merge_folders.py` script to mix images from each category across all sets.
+Run the `crop_and_segment_images.py` script, which will segment and crop all cells based on the real masks.
+
+Next, run `merge_divide.py` to mix up the images and distribute them into train, val, test folders based on the `data_division.txt` file.
 
 ## Model Training
 
-For model training, execute the `train.py` script. Within this script, adjust the `MODEL` variable to select your desired model (`vgg`, `vit`, `resnet`) and set the `PRETRAINED` flag to indicate whether to initiate training from scratch or use a pre-trained model as a starting point.
+Run the `train.py` script. Within this script, adjust the `MODEL` variable to select your desired model (`vgg`, `vit`, `resnet`) and set the `PRETRAINED` flag to indicate whether to initiate training from scratch or use a pre-trained model as a starting point.
 
 ## Model Evaluation
 
 To evaluate the model's performance on the test set, run the `test()` function within the `train.py` script. 
 
-### Get Labels
+## Get Labels
 
 For obtaining labels of each cell image in the test dataset, use the `get_labels()` function found in the `train.py` script. This step is useful for generating t-SNE plots.
 
