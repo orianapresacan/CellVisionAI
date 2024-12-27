@@ -44,3 +44,9 @@ For obtaining labels of each cell image in the test dataset, use the `get_labels
 ### Model Checkpoints
 
 You can download the checkpoints for the three models trained on the CELLULAR data set from [here](https://drive.google.com/drive/folders/1SQpfsqEfRrEO1e5esKhRJNG29iOavM2C?usp=sharing).
+
+
+# Explainable AI
+```bash
+python explainable_ai.py --device=cuda --image-path='final_dataset\test\fed\Timepoint_001_220518-ST_C03_s3_0.png' --method=gradcam
+```
