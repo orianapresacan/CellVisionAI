@@ -2,12 +2,21 @@
 
 This guide for fine-tuning object detection models follows instructions from [Ultralytics tutorials](https://docs.ultralytics.com/tasks/detect/).
 
-## Installation
-
+## Virtual Environment
+Go to the project folder. Create a virtual environment:
 ```bash
-pip install ultralytics
+python -m venv .venv
 ```
-Installing Ultralytics will automatically install Pytorch with CPU. Therefore, if you want to train the model, you should reinstall Pytorch with CUDA support from [here](https://pytorch.org/) after installing Ultralytics.
+
+Activate the virtual environment:
+```bash
+source ./.venv/Scripts/activate
+```
+
+Install the requirements:
+```bash
+pip install -r requirements.txt
+```
 
 ## Data
 ### Understand the Annotation Format 
