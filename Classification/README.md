@@ -45,8 +45,12 @@ For obtaining labels of each cell image in the test dataset, use the `get_labels
 
 You can download the checkpoints for the three models trained on the CELLULAR data set from [here](https://drive.google.com/drive/folders/1SQpfsqEfRrEO1e5esKhRJNG29iOavM2C?usp=sharing).
 
-
 # Explainable AI
+
+To generate the XAI heatmaps, make sure you have the checkpoints of the trained model in the same project folder and run the following command:
 ```bash
-python explainable_ai.py --device=cuda --image-path='final_dataset\test\fed\Timepoint_001_220518-ST_C03_s3_0.png' --method=gradcam
+python xai_code.py --device=cuda --image-folder=images --output-folder=gradcam_images  --method=gradcam --model-path=vit
 ```
+There are several XAI methods available: 'gradcam', 'gradcam++', 'scorecam', 'xgradcam', 'eigencam'.
+
+This code is using the [pytorch grad-cam library](https://github.com/jacobgil/pytorch-grad-cam/tree/master).
