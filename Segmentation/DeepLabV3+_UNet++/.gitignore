@@ -1,2 +1,3 @@
-/data
-/train_outputs
+/data/
+/train_outputs/
+/test_outputs/

@@ -68,10 +68,10 @@ def process_images(images_dir, bboxes_dir, masks_dir, output_dir, max_attempts=1
 
 
 # Example usage
-images_dir = 'images_53'
-bboxes_dir = 'bounding-boxes'
-masks_dir = 'masks'
-output_dir = 'output'
+images_dir = 'data/images_53'
+bboxes_dir = 'data/bounding-boxes'
+masks_dir = 'data/masks'
+output_dir = 'data/output'
 os.makedirs(output_dir, exist_ok=True)
 
 process_images(images_dir, bboxes_dir, masks_dir, output_dir)

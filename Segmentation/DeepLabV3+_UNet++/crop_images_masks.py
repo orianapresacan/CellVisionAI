@@ -25,6 +25,7 @@ def get_bounding_box_from_mask(mask_img):
 def crop_and_save(image, mask, bbox, masks_save_path, images_save_path, base_name, idx):
     """
     Crops and saves the original image and its corresponding mask based on the bounding box.
+    Resizes the cropped image and mask to 64x64 before saving.
     """
     xmin, ymin, xmax, ymax = bbox
 
@@ -38,18 +39,22 @@ def crop_and_save(image, mask, bbox, masks_save_path, images_save_path, base_nam
         return
 
     cropped_mask = mask[ymin:ymax, xmin:xmax]
-    if cropped_mask.size == 0:  # Ensure the cropped mask is not empty
+    if cropped_mask.size == 0: 
         print(f"Empty cropped mask for bbox: {bbox} in {base_name}_{idx}")
         return
-    mask_save_path = os.path.join(masks_save_path, f"{base_name}_mask_{idx}.png")
-    cv2.imwrite(mask_save_path, cropped_mask)
+
+    resized_mask = cv2.resize(cropped_mask, (64, 64), interpolation=cv2.INTER_NEAREST)
+    mask_save_path = os.path.join(masks_save_path, f"{base_name}_{idx}.png")
+    cv2.imwrite(mask_save_path, resized_mask)
 
     cropped_image = image[ymin:ymax, xmin:xmax]
-    if cropped_image.size == 0:  # Ensure the cropped image is not empty
+    if cropped_image.size == 0: 
         print(f"Empty cropped image for bbox: {bbox} in {base_name}_{idx}")
         return
-    image_save_path = os.path.join(images_save_path, f"{base_name}_image_{idx}.jpg")
-    cv2.imwrite(image_save_path, cropped_image)
+
+    resized_image = cv2.resize(cropped_image, (64, 64), interpolation=cv2.INTER_LINEAR)
+    image_save_path = os.path.join(images_save_path, f"{base_name}_{idx}.jpg")
+    cv2.imwrite(image_save_path, resized_image)
 
 
 def process_parent_dir(parent_dir):

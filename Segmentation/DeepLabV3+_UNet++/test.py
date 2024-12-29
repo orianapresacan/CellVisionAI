@@ -17,6 +17,12 @@ ENCODER_WEIGHTS = 'imagenet'
 CLASSES = ['cell']
 ACTIVATION = 'sigmoid'
 
+try:
+    os.mkdir('test_outputs')
+    print(f"Directory '{'test_outputs'}' created successfully.")
+except FileExistsError:
+    print(f"Directory '{'test_outputs'}' already exists.")
+
 
 def visualize_samples(number_of_samples):
     for i in range(number_of_samples):
@@ -37,32 +43,56 @@ def visualize_samples(number_of_samples):
         )
         grid.save(f"test_outputs/sample_{i}.png")
 
-def get_segmented_cells(main_folder_path, get_only_mask):
+def get_segmented_cells(input_folder_path):
+    output_folder_path = os.path.join(input_folder_path, "segmented_cropped_images")
+
+    if not os.path.exists(output_folder_path):
+        os.makedirs(output_folder_path)
+
+    for file in os.listdir(input_folder_path):
+        file_path = os.path.join(input_folder_path, file)
+
+        if os.path.isfile(file_path): 
+            image = Image.open(file_path)
+            image = image.resize((64, 64))
+            image = np.array(image)
+
+            image_tensor = helpers.normalize(image, mean=[0.4437, 0.4503, 0.2327], std=[0.2244, 0.2488, 0.0564])
+            image_tensor = torch.from_numpy(image_tensor).to(DEVICE).unsqueeze(0)
+            image_tensor = image_tensor.type(torch.float32)
+
+            with torch.no_grad():
+                pr_mask = model.predict(image_tensor)
+            pr_mask = pr_mask.squeeze(0).cpu().numpy().round()
+
+            pr_mask = pr_mask.reshape(64, 64, 1)
+
+            save_image = pr_mask.astype(np.uint8) * 255  
+            save_image = save_image.squeeze()
+
+            cropped_cell_image = Image.fromarray(save_image)
+            cropped_cell_image.save(os.path.join(output_folder_path, os.path.basename(file)))
+
+def get_tracked_segmented_cells(main_folder_path, get_only_mask):
     subfolders = ['frame_0', 'frame_1', 'frame_2', 'frame_3', 'frame_4'] 
 
     for subfolder in subfolders:
         input_folder_path = os.path.join(main_folder_path, subfolder)
         output_folder_path = os.path.join(main_folder_path, f"cropped_{subfolder}")
 
-        # Create output directory if it doesn't exist
         if not os.path.exists(output_folder_path):
             os.makedirs(output_folder_path)
 
-        # Iterate over each image file in the subfolder
         for file in os.listdir(input_folder_path):
-            # Construct the full file path
             file_path = os.path.join(input_folder_path, file)
             
-            # Load the image
             image = Image.open(file_path)
             image = np.array(image)
 
-            # Normalize and prepare the image tensor
             image_tensor = helpers.normalize(image, mean=[0.4437, 0.4503, 0.2327], std=[0.2244, 0.2488, 0.0564])
             image_tensor = torch.from_numpy(image_tensor).to(DEVICE).unsqueeze(0)
             image_tensor = image_tensor.type(torch.float32)
 
-            # Get the binary mask from the model
             with torch.no_grad():
                 pr_mask = model.predict(image_tensor)
             pr_mask = pr_mask.squeeze(0).cpu().numpy().round()
@@ -70,34 +100,32 @@ def get_segmented_cells(main_folder_path, get_only_mask):
             pr_mask = pr_mask.reshape(64, 64, 1)
 
             if get_only_mask:
-                save_image = pr_mask.astype(np.uint8) * 255  # Scale up to make the mask visible
+                save_image = pr_mask.astype(np.uint8) * 255  
                 save_image = save_image.squeeze()
             else:
-                # Crop the image based on the mask and add a black background
                 masked_image = image * pr_mask
                 background = np.zeros_like(image)
                 cropped_cell = np.where(pr_mask, masked_image, background)
 
-                # Ensure that cropped_cell is in 'uint8' format
                 save_image = cropped_cell.astype(np.uint8)
 
-            # Save the cropped cell image in the corresponding output subfolder
             cropped_cell_image = Image.fromarray(save_image)
             cropped_cell_image.save(os.path.join(output_folder_path, os.path.basename(file)))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog=__name__, description='cell')
-    parser.add_argument('--action', type=str, choices=["get_samples", "get_results", "get_samples_and_results", 'get_segmented_cells'], default=("get_samples_and_results"))
+    parser.add_argument('--action', type=str, choices=["get_segmented_cells", 'get_tracked_segmented_cells'], default=("get_segmented_cells"))
     parser.add_argument('--samples', type=int, default=5)
+    parser.add_argument("--input_folder", type=str, required=False, help="Input folder path")
     parser.add_argument('--model', type=str, choices=["FPN", "UNET++", "DEEPLABV3+"], required=True)
-    options, unknown = parser.parse_known_args()
+    args = parser.parse_args()
 
     # os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
     DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
     NUM_WORKERS = 0
     BATCH_SIZE = 1
-    MODEL = options.model 
+    MODEL = args.model 
 
     model_types = { 
         "UNET++": smp.UnetPlusPlus,
@@ -128,12 +156,14 @@ if __name__ == '__main__':
         device=DEVICE,
     )
 
-    if options.action == 'get_samples':
-        visualize_samples(options.samples)
-    elif options.action == 'get_results':
+    if args.action == 'get_samples':
+        visualize_samples(args.samples)
+    elif args.action == 'get_results':
         logs = test_epoch.run(test_loader)
-    elif options.action == 'get_segmented_cells':
-        get_segmented_cells('data/test/Deeplab_segm', get_only_mask=True)
+    elif args.action == 'get_tracked_segmented_cells':
+        get_tracked_segmented_cells(args.input_folder, args.get_only_mask)
+    elif args.action == 'get_segmented_cells':
+        get_segmented_cells(args.input_folder)
     else:
         logs = test_epoch.run(test_loader)
-        visualize_samples(options.samples)
+        visualize_samples(args.samples)

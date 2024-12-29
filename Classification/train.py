@@ -26,9 +26,9 @@ transforms = transforms.Compose([
     transforms.Normalize(mean=[0.4437, 0.4503, 0.2327], std=[0.2244, 0.2488, 0.0564]), 
 ])
 
-train_dataset = CellDataset(main_dir='data/train/images', transform=transforms)
-val_dataset = CellDataset(main_dir='data/val/images', transform=transforms)
-test_dataset = CellDataset(main_dir='data/test/images', transform=transforms)
+train_dataset = CellDataset(main_dir='final_dataset/train', transform=transforms)
+val_dataset = CellDataset(main_dir='final_dataset/val', transform=transforms)
+test_dataset = CellDataset(main_dir='final_dataset/test', transform=transforms)
 
 train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_dataloader = DataLoader(val_dataset, batch_size=32, shuffle=False)
@@ -36,6 +36,11 @@ test_dataloader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
 
 def train():
+    try:
+        os.mkdir('checkpoints')
+        print(f"Directory '{'checkpoints'}' created successfully.")
+    except FileExistsError:
+        print(f"Directory '{'checkpoints'}' already exists.")
 
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.0001)
@@ -117,7 +122,9 @@ def test():
     return accuracy, precision, recall, f1, mcc
 
 def get_labels(main_folder, output_file):
-
+    model = torch.load(f'checkpoints/best_vit')
+    model.eval() 
+    
     with open(output_file, 'w') as file:
         for subdir, dirs, files in os.walk(main_folder):
             for file_name in files:
@@ -125,8 +132,7 @@ def get_labels(main_folder, output_file):
                     image_path = os.path.join(subdir, file_name)
                     image = Image.open(image_path).convert('RGB')
                     image = transforms(image).unsqueeze(0).to(device)
-                    model = torch.load(f'checkpoints/best_vit')
-                    model.eval()  
+
                     with torch.no_grad():
                         outputs = model(image)
                         _, predicted = torch.max(outputs, 1)
@@ -135,7 +141,7 @@ def get_labels(main_folder, output_file):
                     relative_path = os.path.relpath(image_path, main_folder)
                     file.write(f"{relative_path} class: {predicted_class}\n")
 
-# get_labels("C:/Users/oriana/Desktop/Projects/Autophagy_cells/tests/saved_frames_I06_s2_segmented", "I06_s2_classes.txt")
+# get_labels("tests/saved_frames_I06_s2_segmented", "I06_s2_classes.txt")
 train()
 accuracy, precision, recall, f1, mcc = test()
 

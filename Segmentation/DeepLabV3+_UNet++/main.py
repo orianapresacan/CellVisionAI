@@ -20,7 +20,7 @@ ACTIVATION = 'sigmoid' # could be None for logits or 'softmax2d' for multiclass 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 NUM_WORKERS = 0
 MAX_EPOCHS = 200
-MODEL = "UNET++"  #"FPN", "UNET++"
+MODEL = "UNET++"  #"DEEPLABV3+", "UNET++"
 USE_WANDB = False
 
 helpers.fix_seed()
