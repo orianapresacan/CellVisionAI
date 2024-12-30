@@ -1,0 +1,7 @@
+/data_test/
+/unet.pth/
+/mixed/
+/output/
+/features_test/
+/resnet_features/
+/unet_features/
