@@ -51,6 +51,6 @@ To generate the XAI heatmaps, make sure you have the checkpoints of the trained 
 ```bash
 python xai_code.py --device=cuda --image-folder=images --output-folder=gradcam_images  --method=gradcam --model-path=vit
 ```
-There are several XAI methods available: 'gradcam', 'gradcam++', 'scorecam', 'xgradcam', 'eigencam'.
+There are several XAI methods available: 'gradcam', 'eigencam', 'ablationcam'.
 
 This code is using the [pytorch grad-cam library](https://github.com/jacobgil/pytorch-grad-cam/tree/master).
