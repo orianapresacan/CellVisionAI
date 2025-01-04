@@ -3,8 +3,10 @@ import os
 import cv2
 import numpy as np
 import torch
-from pytorch_grad_cam import GradCAM, GradCAMPlusPlus, ScoreCAM, XGradCAM, EigenCAM
+from pytorch_grad_cam import GradCAM, GradCAMPlusPlus, ScoreCAM, XGradCAM, EigenCAM, AblationCAM
 from pytorch_grad_cam.utils.image import show_cam_on_image, preprocess_image
+from pytorch_grad_cam.ablation_layer import AblationLayerVit
+
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -12,7 +14,7 @@ def get_args():
     parser.add_argument('--image-folder', type=str, required=True, help='Folder containing input images')
     parser.add_argument('--output-folder', type=str, required=True, help='Folder to save XAI images')
     parser.add_argument('--method', type=str, default='gradcam',
-                        choices=['gradcam', 'gradcam++', 'scorecam', 'xgradcam', 'eigencam'],
+                        choices=['gradcam', 'gradcam++', 'scorecam', 'xgradcam', 'eigencam', 'kpcacam', 'ablationcam'],
                         help='XAI method to use')
     parser.add_argument('--model-path', type=str, required=True, help='Path to the pretrained model')
     return parser.parse_args()
@@ -30,13 +32,22 @@ if __name__ == '__main__':
         'gradcam++': GradCAMPlusPlus,
         'scorecam': ScoreCAM,
         'xgradcam': XGradCAM,
-        'eigencam': EigenCAM
+        'eigencam': EigenCAM,
+        'ablationcam': AblationCAM
     }
 
     model = torch.load(args.model_path).to(torch.device(args.device)).eval()
-    target_layers = [model.encoder.layers[10]]  # Choose the appropriate layer
+    target_layers = [model.encoder.layers[11].ln_1]  # Choose the appropriate layer
 
-    cam = methods[args.method](model=model, target_layers=target_layers, reshape_transform=reshape_transform)
+    if args.method == "ablationcam":
+        cam = methods[args.method](model=model,
+                                   target_layers=target_layers,
+                                   reshape_transform=reshape_transform,
+                                   ablation_layer=AblationLayerVit())
+    else:
+        cam = methods[args.method](model=model,
+                                   target_layers=target_layers,
+                                   reshape_transform=reshape_transform)
 
     os.makedirs(args.output_folder, exist_ok=True)
 
