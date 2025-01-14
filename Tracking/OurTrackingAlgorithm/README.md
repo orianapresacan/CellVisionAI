@@ -41,6 +41,7 @@ You can download an example data folder from [here](https://drive.google.com/fil
 
 ### Impact on Tracking
 - These inconsistencies affect tracking, as we are only interested in cells that appear consistently across all 5 frames.
+- Additionally, some cells may overlap, or the tracking algorithm might fail to detect them in certain frames.
 - Consequently:
   - The first frame will include all tracked cells.
   - Subsequent frames will only include cells that are consistent, resulting in fewer cells being tracked in each subsequent frame.
