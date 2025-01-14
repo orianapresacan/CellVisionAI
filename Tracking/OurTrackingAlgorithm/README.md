@@ -15,6 +15,8 @@ This guide details the setup and use of our custom tracking model.
 - All masks must be combined into a single folder (not divided into categories such as `fed`, `unfed`, or `unidentified` as in the original dataset).
 - To mix and convert the masks to binary format, run the script `mix_binary.py`
 
+You can download an example data folder from [here](https://drive.google.com/file/d/16kQkn250BK58nLC1PYCH5gx6vWjSslHb/view?usp=sharing).
+
 ## Tracking Instructions
 
 ### Run the Tracking Script
@@ -26,8 +28,26 @@ This guide details the setup and use of our custom tracking model.
 
 ### Configurations
 - Set `CROP_SAVE = True` in the script.
-- Set `DRAW = True` to enable drawing of tracking annotations.
+- Set `DRAW = True` to enable tracking annotations to be drawn.
 - Update the `main_folder` variable in the script to your dataset path:  
+
+## Handling Inconsistent Cell Annotations
+
+### Problem Overview
+- Each frame in the original dataset contains a different number of annotated cells. For instance:
+  - Frame 1 may have 200 annotated cells.
+  - Frame 2 might only have 190 annotated cells.
+  - This inconsistency arises because different annotators worked on different frames at different times.
+
+### Impact on Tracking
+- These inconsistencies affect tracking, as we are only interested in cells that appear consistently across all 5 frames.
+- Consequently:
+  - The first frame will include all tracked cells.
+  - Subsequent frames will only include cells that are consistent, resulting in fewer cells being tracked in each subsequent frame.
+
+### Removing Inconsistent Cells
+- To delete cells that are not consistent across all frames, use the script `delete_inconsistent_cells.py`
+
 
 ## Feature Vectors (optional)
 - We observed that feature vectors were not particularly effective, likely due to the high similarity between the cells. However, if you want yo use them:
