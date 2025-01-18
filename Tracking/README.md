@@ -1,6 +1,4 @@
 
-
-
 # SORT
 
 This guide explains how to run the SORT (Simple Online and Realtime Tracking) algorithm using the [SORT codebase](https://github.com/abewley/sort) on the CELLULAR data set.
@@ -46,23 +44,3 @@ In the `data` folder, create a separate directory for each video:
 - **`gt` Directory:** Should be empty, as ground truth data is not used in our implementation.
 - **`img1` Directory:** Contains the sequence images (e.g., `000001.jpg`, `000002.jpg`, etc.).
 - **`data.npy` File:** Stores the data needed for tracking.
-
-
-# Our Tracking Model 
-
-This guide details the setup and use of our custom tracking model.
-
-## Data Preparation
-- **Annotation Format:** We use the YOLO format for bounding box annotations.
-
-## Feature Vectors
-- **Generating Feature Vectors:** Use the `feature_vectors.py` script to generate feature vectors.
-  - This script utilizes the resnet50 model to extract features.
-  - Ensure you have complete images and their corresponding bounding box text files before running this script.
-
-## Tracking Methods
-- **Euclidean Distance Tracking:** `tracking_euclidean_distance.py` uses Euclidean distance for tracking.
-  - This method is a simple tracking approach and serves as a baseline for performance comparisons with subsequent algorithms.
-
-- **Custom Tracking Algorithm:** Our advanced tracking capabilities are implemented in `tracking_features.py`.
-  - This script incorporates sophisticated algorithms for improved tracking performance over the baseline method.
