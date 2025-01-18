@@ -4,12 +4,20 @@
 
 This repository is based on the [Segment Anything Model](https://segment-anything.com/) developed by Meta, complemented by fine-tuning techniques exemplified in this [notebook](https://colab.research.google.com/drive/1Jb422MehJ6TYUCfcy6yxuSOJkSGAfJXj#scrollTo=5GhzOeOFbCQa) from Medium. We used this tutorial for fine-tuning SAM without bounding boxes.
 
-## Installation
-
-To integrate SAM into your projects, run the following command:
-
+## Virtual Environment
+Go to the project folder. Create a virtual environment:
 ```bash
-pip install segment_anything
+python -m venv .venv
+```
+
+Activate the virtual environment:
+```bash
+source ./.venv/Scripts/activate
+```
+
+Install the requirements:
+```bash
+pip install -r requirements.txt
 ```
 
 ## Data

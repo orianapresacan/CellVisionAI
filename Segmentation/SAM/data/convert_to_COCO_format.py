@@ -4,9 +4,9 @@ import numpy as np
 import cv2
 from PIL import Image
 
-image_folder = 'data/sample_image/image'
-annotation_folder = 'data/sample_image/bbox'
-mask_folder = 'data/masks'  
+image_folder = 'images'
+# annotation_folder = 'bounding-boxes'
+mask_folder = 'masks'  
 output_json_path = 'data/annotations.json'
 
 def mask_to_bbox_area_segmentation(mask_path):

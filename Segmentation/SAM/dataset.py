@@ -3,7 +3,6 @@ import os
 import cv2
 import numpy as np
 import torchvision.transforms as transforms
-from pycocotools.coco import COCO
 from segment_anything.utils.transforms import ResizeLongestSide
 from torch.utils.data import Dataset
 import torch

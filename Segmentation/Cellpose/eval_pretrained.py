@@ -172,7 +172,7 @@ def main(args):
         "recall": np.mean(recall_list[:, 0]),
         "f1": np.mean(f1_list[:, 0]),
         "jaccard": np.mean(jaccard_list[:, 0]),
-        "accuracy": np.mean(accuracy_list[:, 0]),
+        # "accuracy": np.mean(accuracy_list[:, 0]),
     }
 
     results["cell"] = {
@@ -180,7 +180,7 @@ def main(args):
         "recall": np.mean(recall_list[:, 1]),
         "f1": np.mean(f1_list[:, 1]),
         "jaccard": np.mean(jaccard_list[:, 1]),
-        "accuracy": np.mean(accuracy_list[:, 1]),
+        # "accuracy": np.mean(accuracy_list[:, 1]),
     }
 
     results["average"] = {

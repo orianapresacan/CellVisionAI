@@ -2,6 +2,7 @@
 /unet.pth/
 /mixed/
 /output/
-/features_test/
-/resnet_features/
-/unet_features/
+/features_test.csv
+/resnet_features.csv
+/unet_features.csv
+/dinov2_features.csv
