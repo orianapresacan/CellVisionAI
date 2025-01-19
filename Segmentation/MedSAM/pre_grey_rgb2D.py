@@ -20,14 +20,14 @@ parser.add_argument(
     "-i",
     "--img_path",
     type=str,
-    default="data/train/images",
+    default="data/train/images/new_images",
     help="path to the images",
 )
 parser.add_argument(
     "-gt",
     "--gt_path",
     type=str,
-    default="data/train/masks",
+    default="data/train/masks/new_masks",
     help="path to the ground truth (gt)",
 )
 
@@ -42,7 +42,7 @@ parser.add_argument(
     "-o",
     "--npz_path",
     type=str,
-    default="data/cellular",
+    default="data/npz",
     help="path to save the npz files",
 )
 parser.add_argument(
@@ -53,7 +53,7 @@ parser.add_argument(
 )
 parser.add_argument("--image_size", type=int, default=2048, help="image size")
 parser.add_argument(
-    "--img_name_suffix", type=str, default=".png", help="image name suffix"
+    "--img_name_suffix", type=str, default=".jpg", help="image name suffix"
 )
 parser.add_argument("--label_id", type=int, default=255, help="label id")
 parser.add_argument("--model_type", type=str, default="vit_h", help="model type")

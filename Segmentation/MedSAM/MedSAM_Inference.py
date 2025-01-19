@@ -73,7 +73,7 @@ def finetune_model_predict(img_np, box_np, sam_trans, sam_model_tune, device='cu
 #%% run inference
 # set up the parser
 parser = argparse.ArgumentParser(description='run inference on testing set based on MedSAM')
-parser.add_argument('-i', '--data_path', type=str, default='data/Test', help='path to the data folder')
+parser.add_argument('-i', '--data_path', type=str, default='data/test', help='path to the data folder')
 parser.add_argument('-o', '--seg_path_root', type=str, default='data/Test_MedSAMBaseSeg', help='path to the segmentation folder')
 parser.add_argument('--seg_png_path', type=str, default='data/sanity_test/Test_MedSAMBase_png', help='path to the segmentation folder')
 parser.add_argument('--model_type', type=str, default='vit_b', help='model type')
