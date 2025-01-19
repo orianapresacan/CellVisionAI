@@ -2,3 +2,8 @@
 /binarized_masks/
 /divided_data/
 /annotations/
+/images/
+/masks/
+/data/test/
+/data/val/
+/data/train/

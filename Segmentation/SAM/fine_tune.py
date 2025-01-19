@@ -112,8 +112,8 @@ def main():
     global test
     global annot
 
-    train = "data/train"
-    test = "data/val"
+    train = "data/train/images"
+    test = "data/val/images"
     annot = "annotations.json"
 
     global batch_size

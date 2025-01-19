@@ -83,9 +83,9 @@ def plot(y_true, y_pred):
 def main():
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     global FINETUNED 
-    FINETUNED = 1
+    FINETUNED = 0
 
-    test = "data/test"
+    test = "data/test/images"
     transform = dataset.ResizeAndPad(1024)
     testdata = dataset.COCODataset(root_dir=test,
                                 annotation_file="data/test/annotations.json", 
