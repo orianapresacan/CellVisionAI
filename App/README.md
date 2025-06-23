@@ -6,27 +6,27 @@ No installation required — just download and run the `.exe`.
 
 ## 📥 Download
 
-**[Click here to download the latest version]()**
+**[Click here to download the app](https://drive.google.com/file/d/1kqTJtL-cf6C7znYfUI2iZh55VJR-wVV-/view?usp=sharing)**
 
 ---
 
 ## How to Use
 
 1. Run `CellVisionAI.exe`.
-2. Click **“Load Image”** and select the image you want to annotate.
+2. Click **“Load Image”** and select the image you want to annotate. Make sure the image is in the same folder as the `.exe`!!
 3. Wait a few moments while the model processes the image.
 4. The annotated image will be displayed in the app.
 5. Click **“Save Results”** to export the output files.
 
 ---
 
-<img src="../Images/app.png" width="500" height="500"/> 
+<img src="../Images/app.png" width="500" height="550"/> 
 
 ### Classification Labels
 
-0 - Basal Autophagy
-1 - Activated Autophagy
-2 - Unidentified
+0 - Basal Autophagy  
+1 - Activated Autophagy  
+2 - Unidentified  
 
 ---
 
