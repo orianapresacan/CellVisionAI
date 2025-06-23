@@ -19,7 +19,16 @@ No installation required — just download and run the `.exe`.
 5. Click **“Save Results”** to export the output files.
 
 ---
+
 <img src="../Images/app.png" width="400" height="400"/> 
+
+---
+### Classification Labels
+
+0 - Basal Autophagy
+1 - Activated Autophagy
+2 - Unidentified
+
 ## Included Files
 
 When you save results, a `.zip` file will be generated containing:
@@ -29,9 +38,3 @@ When you save results, a `.zip` file will be generated containing:
 - `segmentation_masks/` — a folder with segmentation masks
 
 ---
-
-### Classification Labels
-
-0 - Basal Autophagy
-1 - Activated Autophagy
-2 - Unidentified
