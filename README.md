@@ -6,12 +6,12 @@ CellVisionAI provides an in-depth analysis of autophagy using deep learning tech
 <img src="./Images/dataset_sample.jpg" width="800" height="150"/> 
 
 ## Repository Structure
+- `App/` - Ready-to-use desktop application.
 - `Classification/` - Scripts for training ResNet, VGG, and ViT for cell classification, along with the models' checkpoints.
 - `DatasetAnalysis/` - Code for performing exploratory data analysis on the CELLULAR data set.
 - `ObjectDetection/` - Scripts for training and evaluating YOLO models for cell detection, including model checkpoints.
 - `Segmentation/` - Scripts and models (SAM, Cellpose, U-Net++, DeepLabV3+) for cell segmentation in images, along with their checkpoints.
 - `LastFramePrediction/` - Code for next-frame prediction in video sequences using models such as ConvLSTM, U-Net, Diffusion Model, PredRNN-v2, SwinLSTM, SimVP, and DMVFN.
-- `Application/` - Scripts for a desktop application that integrates all trained models, providing an automated pipeline for cell detection, segmentation, and classification.
 
 ## Getting Started
 1. Clone the repo to your local machine.
