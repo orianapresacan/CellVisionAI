@@ -19,7 +19,7 @@ No installation required — just download and run the `.exe`.
 5. Click **“Save Results”** to export the output files.
 
 ---
-<img src="./Images/app.png" width="400" height="400"/> 
+<img src="../Images/app.png" width="400" height="400"/> 
 ## Included Files
 
 When you save results, a `.zip` file will be generated containing:
