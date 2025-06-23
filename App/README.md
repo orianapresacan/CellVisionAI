@@ -20,14 +20,15 @@ No installation required — just download and run the `.exe`.
 
 ---
 
-<img src="../Images/app.png" width="400" height="400"/> 
+<img src="../Images/app.png" width="500" height="500"/> 
 
----
 ### Classification Labels
 
 0 - Basal Autophagy
 1 - Activated Autophagy
 2 - Unidentified
+
+---
 
 ## Included Files
 
